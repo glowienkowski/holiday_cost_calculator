@@ -26,7 +26,12 @@ def car_rental():
         choice = input("Choose your car rental option (1, 2, or 3): ")
 
         if choice in ['1', '2', '3']:
-            return int(choice)
+            while True:
+                rental_days = input("Enter the number of days for which you will be hiring a car: ")
+                if rental_days.isdigit() and int(rental_days) > 0:
+                    return int(choice), int(rental_days)
+                else:
+                    print("Invalid input. Please enter a positive integer.")
         else:
             print("Invalid option. Please enter a valid choice.")
 
@@ -41,8 +46,11 @@ def hotel_cost():
         choice = input("Choose your room type (1, 2, or 3): ")
 
         if choice in ['1', '2', '3']:
-            num_nights = int(input("Enter the number of nights you will be staying at a hotel: "))
-            return int(choice), num_nights
+            num_nights = input("Enter the number of nights you will be staying at a hotel: ")
+            if num_nights.isdigit() and int(num_nights) > 0:
+                return int(choice), int(num_nights)
+            else:
+                print("Invalid input. Please enter a positive integer.")
         else:
             print("Invalid option. Please enter a valid choice.")
 
@@ -62,8 +70,7 @@ def holiday_cost(hotel_choice, plane_choice, car_choice, num_nights, rental_days
 # Get user inputs
 plane_choice = plane_cost()
 hotel_choice, num_nights = hotel_cost()
-car_choice = car_rental()
-rental_days = int(input("Enter the number of days for which you will be hiring a car: "))
+car_choice, rental_days = car_rental()
 
 # Calculate costs using the functions
 hotel_total, plane_total, car_total = holiday_cost(hotel_choice, plane_choice, car_choice, num_nights, rental_days)
