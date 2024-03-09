@@ -1,5 +1,3 @@
-# =========== Holiday Cost Calculator ===========
-
 # Function to display and calculate plane cost based on the chosen city
 def plane_cost():
     while True:
@@ -8,10 +6,10 @@ def plane_cost():
         print("2. Oslo - £700 per flight")
         print("3. Berlin - £1000 per flight")
 
-        choice = input("Choose your destination (1, 2, or 3): ")
+        destination_choice = input("Choose your destination (1, 2, or 3): ")
 
-        if choice in ['1', '2', '3']:
-            return int(choice)
+        if destination_choice in ['1', '2', '3']:
+            return int(destination_choice)
         else:
             print("Invalid option. Please enter a valid choice.")
 
@@ -23,13 +21,13 @@ def car_rental():
         print("2. Standard Car - £60 per day")
         print("3. Luxury Car - £80 per day")
 
-        choice = input("Choose your car rental option (1, 2, or 3): ")
+        car_choice = input("Choose your car rental option (1, 2, or 3): ")
 
-        if choice in ['1', '2', '3']:
+        if car_choice in ['1', '2', '3']:
             while True:
                 rental_days = input("Enter the number of days for which you will be hiring a car: ")
                 if rental_days.isdigit() and int(rental_days) > 0:
-                    return int(choice), int(rental_days)
+                    return int(car_choice), int(rental_days)
                 else:
                     print("Invalid input. Please enter a positive integer.")
         else:
@@ -43,12 +41,12 @@ def hotel_cost():
         print("2. Deluxe Room - £150 per night")
         print("3. Suite - £200 per night")
 
-        choice = input("Choose your room type (1, 2, or 3): ")
+        room_choice = input("Choose your room type (1, 2, or 3): ")
 
-        if choice in ['1', '2', '3']:
+        if room_choice in ['1', '2', '3']:
             num_nights = input("Enter the number of nights you will be staying at a hotel: ")
             if num_nights.isdigit() and int(num_nights) > 0:
-                return int(choice), int(num_nights)
+                return int(room_choice), int(num_nights)
             else:
                 print("Invalid input. Please enter a positive integer.")
         else:
